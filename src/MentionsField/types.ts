@@ -1,11 +1,11 @@
 import React from 'react'
 
-export interface Option {
+export interface MentionOption {
   label: string
   value: string
 }
 
-export interface MentionTag extends Option {
+export interface MentionTag extends MentionOption {
   start: number
   end: number
 }
@@ -23,10 +23,10 @@ export interface InputProps
   onChange: (e: ChangeCbEvent) => void
 }
 
-export interface IRaw {
+export interface MentionChangeValue {
   displayText: string
   draftText: string
-  mentions: Option[]
+  mentions: MentionOption[]
 }
 
 export interface MentionsFieldProps
@@ -36,8 +36,8 @@ export interface MentionsFieldProps
    * Example value: Some @[tag-value](Tag label) text
    */
   value?: string
-  options: Option[]
-  onChange?: (obj: IRaw) => void
+  options: MentionOption[]
+  onChange?: (obj: MentionChangeValue) => void
   isTextarea?: boolean
   label?: string
   tag?: string

@@ -9,14 +9,14 @@ import React, {
 
 import {
   InputProps,
-  IRaw,
+  MentionChangeValue,
   MentionsFieldProps,
   MentionTag,
-  Option
+  MentionOption
 } from './types'
 import './styles.css'
 
-const MentionsField: FC<MentionsFieldProps> = ({
+export const MentionsField: FC<MentionsFieldProps> = ({
   options,
   disabled,
   label,
@@ -29,7 +29,7 @@ const MentionsField: FC<MentionsFieldProps> = ({
 }) => {
   const [inputText, setInputText] = useState<string>('')
   const [mentions, setMentions] = useState<MentionTag[]>([])
-  const [suggestions, setSuggestions] = useState<Option[]>([])
+  const [suggestions, setSuggestions] = useState<MentionOption[]>([])
   const [suggestionPosition, setSuggestionPosition] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -117,17 +117,17 @@ const MentionsField: FC<MentionsFieldProps> = ({
   )
 
   const prepareDraftMention = useCallback(
-    (item: Option) => `${tag}[${item.value}](${item.label})`,
+    (item: MentionOption) => `${tag}[${item.value}](${item.label})`,
     [tag]
   )
 
   const prepareDisplayMention = useCallback(
-    (item: Option) => `${tag}${item.label}`,
+    (item: MentionOption) => `${tag}${item.label}`,
     [tag]
   )
 
   const handleSelectMention = useCallback(
-    (item: Option) => {
+    (item: MentionOption) => {
       const mentionText = prepareDisplayMention(item)
       const textBefore = inputText.substring(0, suggestionPosition)
       const textAfter = inputText.substring(suggestionPosition + 1)
@@ -156,7 +156,7 @@ const MentionsField: FC<MentionsFieldProps> = ({
     [inputText, mentions, suggestionPosition, prepareDisplayMention]
   )
 
-  const getRawResult = useCallback((): IRaw => {
+  const getRawResult = useCallback((): MentionChangeValue => {
     let draftText = inputText
 
     let offset = 0
@@ -292,5 +292,3 @@ const MentionsField: FC<MentionsFieldProps> = ({
     </div>
   )
 }
-
-export default MentionsField
