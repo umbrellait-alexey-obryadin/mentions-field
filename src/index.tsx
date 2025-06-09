@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'development') {
   root.render(
     <React.StrictMode>
       <MentionsField
-        value="fd1 111 @[option-3](Option 3)  222"
+        onChange={console.log}
         options={[
           { label: 'Option 1', value: 'option-1' },
           { label: 'Option 2', value: 'option-2' },
@@ -18,9 +18,6 @@ if (process.env.NODE_ENV === 'development') {
           { label: 'Option 4', value: 'option-4' },
           { label: 'Option 5', value: 'option-5' }
         ]}
-        onChange={(obj) => {
-          console.log(obj)
-        }}
       />
     </React.StrictMode>
   )

@@ -10,12 +10,10 @@ export interface MentionTag extends Option {
   end: number
 }
 
-type TextareaSizes = Partial<Pick<HTMLTextAreaElement, 'cols' | 'rows'>>
-
 type ChangeCbEvent = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 
 export interface InputProps
-  extends TextareaSizes,
+  extends Partial<Pick<HTMLTextAreaElement, 'cols' | 'rows'>>,
     Partial<
       Pick<
         HTMLInputElement,
@@ -32,8 +30,7 @@ export interface IRaw {
 }
 
 export interface MentionsFieldProps
-  extends TextareaSizes,
-    Partial<Omit<HTMLTextAreaElement, 'cols' | 'rows'>> {
+  extends Partial<Omit<HTMLTextAreaElement, 'cols' | 'rows'>> {
   /**
    * The value of the input.
    * Example value: Some @[tag-value](Tag label) text

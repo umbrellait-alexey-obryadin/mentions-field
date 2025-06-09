@@ -201,7 +201,7 @@ const MentionsField: FC<MentionsFieldProps> = ({
 
   const parseMentions = useCallback(
     (text: string): MentionTag[] => {
-      const escapedTag = tag.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+      const escapedTag = tag.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')
       const mentionRegex = new RegExp(
         `${escapedTag}\\[([^\\]]+)\\]\\(([^)]+)\\)`,
         'g'
