@@ -1,19 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import MentionsField from './MentionsField'
+import './index.css'
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+
+if (process.env.NODE_ENV === 'development') {
+  root.render(
+    <React.StrictMode>
+      <MentionsField
+        value="fd1 111 @[option-3](Option 3)  222"
+        options={[
+          { label: 'Option 1', value: 'option-1' },
+          { label: 'Option 2', value: 'option-2' },
+          { label: 'Option 3', value: 'option-3' },
+          { label: 'Option 4', value: 'option-4' },
+          { label: 'Option 5', value: 'option-5' }
+        ]}
+        onChange={(obj) => {
+          console.log(obj)
+        }}
+      />
+    </React.StrictMode>
+  )
+}

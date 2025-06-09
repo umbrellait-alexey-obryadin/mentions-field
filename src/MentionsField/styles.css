@@ -1,0 +1,73 @@
+.mentions-field {
+  position: relative;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.mentions-field__label {
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.mentions-field__input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+.mentions-field__portal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 5px);
+  bottom: auto;
+  z-index: 1000;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.mentions-field__suggestions {
+  list-style: none;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  box-sizing: border-box;
+}
+
+.mentions-field__suggestion {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  color: #333;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+}
