@@ -1,8 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
+import { MentionChangeValue, MentionsFieldProps, MentionOption } from './types'
 import { MentionsField } from './MentionsField'
-import './index.css'
+
+export * from './MentionsField'
+
+export type { MentionChangeValue, MentionsFieldProps, MentionOption }
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
